@@ -37,7 +37,7 @@ def generate_backup_page_text(filename: str) -> str:
 
 def doc_to_pdf(filepath: str, output_path: str) -> None:
     try:
-        text = generate_backup_page_text(filepath)
+        text = generate_backup_page_text(filepath if filepath.endswith(".txt") else filepath + ".txt")
     except FileNotFoundError:
         print(f"Ignoring {filepath} as it does not exist")
         return
